@@ -55,7 +55,7 @@ class ComposerStaticInit43b432361c947b179937ac6da4e95538
         'Highlight\\RegExMatch' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExMatch.php',
         'Highlight\\RegExUtils' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExUtils.php',
         'Highlight\\Terminators' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Terminators.php',
-        'KirbyExtended\\DOMDocumentHandler' => __DIR__ . '/../..' . '/src/DOMDocumentHandler.php',
+        'KirbyExtended\\HTML5DOMDocument' => __DIR__ . '/../..' . '/src/HTML5DOMDocument.php',
         'KirbyExtended\\HighlightAdapter' => __DIR__ . '/../..' . '/src/HighlightAdapter.php',
         'Kirby\\ComposerInstaller\\CmsInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/CmsInstaller.php',
         'Kirby\\ComposerInstaller\\Installer' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',

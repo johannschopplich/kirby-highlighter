@@ -37,7 +37,6 @@ EOD;
 <pre class="hljs"><code><span class="hljs-selector-class">.currentColor</span> {
     <span class="hljs-attribute">color</span>: currentColor;
 }</code></pre>
-
 EOD;
 
         $this->assertEquals($expectedHtml, HighlightAdapter::highlight($html));
@@ -57,7 +56,6 @@ EOD;
 <pre class="hljs"><code><span class="hljs-selector-class">.currentColor</span> {
     <span class="hljs-attribute">color</span>: currentColor;
 }</code></pre>
-
 EOD;
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
@@ -76,7 +74,6 @@ EOD;
 <pre><code>.currentColor {
     color: currentColor;
 }</code></pre>
-
 EOD;
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
@@ -100,7 +97,6 @@ EOD;
         $expectedHtml = <<<'EOD'
 <pre class="hljs"><code><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">html</span>&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">main</span>&gt;</span>Content<span class="hljs-tag">&lt;/<span class="hljs-name">main</span>&gt;</span></code></pre>
-
 EOD;
 
         $this->assertEquals($expectedHtml, $app->kirbytext($text));

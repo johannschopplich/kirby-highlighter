@@ -2,6 +2,7 @@
 
 namespace KirbyExtended;
 
+use DOMXPath;
 use Highlight\Highlighter;
 use Kirby\Toolkit\Str;
 
@@ -18,13 +19,12 @@ class HighlightAdapter
     public static function highlight(?string $text)
     {
         // Parse KirbyText input as HTML document
-        // @see https://github.com/ivopetkov/html5-dom-document-php
-        $dom = new \DOMDocument();
-        $dom->loadHTML($text, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
+        $dom = new HTML5DOMDocument();
+        $dom->loadHTML($text);
 
         // Retrieve all `pre` elements inside newly created HTML document
         // @see https://www.php.net/manual/en/class.domxpath.php
-        $query = new \DOMXPath($dom);
+        $query = new DOMXPath($dom);
         $elements = $query->evaluate('//pre');
 
         // Loop through all `pre` elements
@@ -59,7 +59,7 @@ class HighlightAdapter
             // Highlight code
             if (!empty($language)) {
                 $highlightedCode = $highlighter->highlight($language, $code);
-            } else if (option(static::$namespace . 'autodetect', false)) {
+            } elseif (option(static::$namespace . 'autodetect', false)) {
                 $languageSubset = option(static::$namespace . 'languages', null);
                 if (!empty($languageSubset)) {
                     $highlighter->setAutodetectLanguages($languageSubset);
@@ -75,7 +75,7 @@ class HighlightAdapter
         }
 
         // Save all changes
-        $text = $dom->saveHTML();
+        $text = $dom->saveHTML(null, true);
         return $text;
     }
 }
