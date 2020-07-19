@@ -1,6 +1,6 @@
 {
-  "name": "johannschopplich/kirby-highlight",
-  "description": "Server-side syntax highlighting inside KirbyText",
+  "name": "johannschopplich/kirby-highlighter",
+  "description": "Server-side syntax highlighting for KirbyText",
   "type": "kirby-plugin",
   "keywords": [
     "kirby",
