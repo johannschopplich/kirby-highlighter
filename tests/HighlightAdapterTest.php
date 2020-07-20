@@ -101,4 +101,12 @@ EOD;
 
         $this->assertEquals($expectedHtml, $app->kirbytext($text));
     }
+
+    public function testUmlauts()
+    {
+        $text = 'Äöü';
+        $expectedHtml = '<p>&Auml;&ouml;&uuml;</p>';
+
+        $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
+    }
 }
