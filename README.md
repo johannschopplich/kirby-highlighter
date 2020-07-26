@@ -16,18 +16,18 @@ Built upon [highlight.php](http://www.highlightjs.org) which itself is a port of
 
 ### Download
 
-Download and copy this repository to `/site/plugins/kirby-highlight`.
+Download and copy this repository to `/site/plugins/kirby-highlighter`.
 
 ### Git submodule
 
 ```
-git submodule add https://github.com/johannschopplich/kirby-highlight.git site/plugins/kirby-highlight
+git submodule add https://github.com/johannschopplich/kirby-highlighter.git site/plugins/kirby-highlighter
 ```
 
 ### Composer
 
 ```
-composer require johannschopplich/kirby-highlight
+composer require johannschopplich/kirby-highlighter
 ```
 
 ## Usage
