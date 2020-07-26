@@ -23,34 +23,35 @@ class HighlightAdapter
         $dom->loadHTML($text);
 
         // Retrieve all `pre` elements inside newly created HTML document
-        // @see https://www.php.net/manual/en/class.domxpath.php
-        $query = new DOMXPath($dom);
-        $elements = $query->evaluate('//pre');
+        $preNodes = $dom->getElementsByTagName('pre');
 
         // Loop through all `pre` elements
-        foreach ($elements as $element) {
+        foreach ($preNodes as $node) {
+            // Ensure nothing nut the `code` element exists
+            if ($node->childNodes->length !== 1) return;
+
             // Select direct `code` child element of `pre` block
-            $codeElement = $query->evaluate('//code', $element)->item(0);
+            $codeNode = $node->firstChild;
 
             // Get language code if present
-            $language = $codeElement->getAttribute('class');
+            $language = $codeNode->getAttribute('class');
             if (Str::contains($language, '-')) {
                 $language = Str::split($language, '-')[1];
             }
 
-            // Bail highlighting if language isn't set or auto detection is disabled
+            // Bail highlighting if language isn't set and auto detection is disabled
             if (empty($language) && !option(static::$namespace . 'autodetect', false)) {
                 continue;
             }
 
             // Add `hljs` class to `pre` block
-            $element->setAttribute('class', option(static::$namespace . 'class', 'hljs'));
+            $node->setAttribute('class', option(static::$namespace . 'class', 'hljs'));
 
             // Get raw code data to highlight
-            $code = $codeElement->nodeValue;
+            $code = $codeNode->nodeValue;
 
             // Remove code element afterwards
-            $element->removeChild($codeElement);
+            $node->removeChild($codeNode);
 
             // Initiate `Highlighter` and use pre-defined language code, fall
             // back to language auto detection if enabled
@@ -69,9 +70,9 @@ class HighlightAdapter
             }
 
             // Append highlighted wrapped in `code` block to parent `pre`
-            $codeElement = $dom->createDocumentFragment();
-            $codeElement->appendXML('<code>' . $highlightedCode->value . '</code>');
-            $element->appendChild($codeElement);
+            $codeNode = $dom->createDocumentFragment();
+            $codeNode->appendXML('<code>' . $highlightedCode->value . '</code>');
+            $node->appendChild($codeNode);
         }
 
         // Save all changes
