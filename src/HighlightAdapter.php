@@ -28,7 +28,9 @@ class HighlightAdapter
         // Loop through all `pre` elements
         foreach ($preNodes as $node) {
             // Ensure nothing nut the `code` element exists
-            if ($node->childNodes->length !== 1) return;
+            if ($node->childNodes->length !== 1) {
+                continue;
+            }
 
             // Select direct `code` child element of `pre` block
             $codeNode = $node->firstChild;
