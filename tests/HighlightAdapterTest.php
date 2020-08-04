@@ -28,20 +28,20 @@ class HighlightAdapterTest extends TestCase
     public function testHighlightAdapter()
     {
         $html = <<<'EOD'
-        <pre><code class="language-css">.foo {
-            color: var(--bar);
-        }</code></pre>
+            <pre><code class="language-css">.foo {
+                color: var(--bar);
+            }</code></pre>
 
-        <pre><code class="language-js">export const foo = 'bar'</code></pre>
-        EOD;
+            <pre><code class="language-js">export const foo = 'bar'</code></pre>
+            EOD;
 
         $expectedHtml = <<<'EOD'
-        <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
-            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
-        }</code></pre>
+            <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
+                <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
+            }</code></pre>
 
-        <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
-        EOD;
+            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            EOD;
 
         $this->assertEquals($expectedHtml, HighlightAdapter::highlight($html));
     }
@@ -49,23 +49,23 @@ class HighlightAdapterTest extends TestCase
     public function testKirbytextExplicitHighlighting()
     {
         $text = <<<'EOD'
-        ```css
-        .foo {
-            color: var(--bar);
-        }
-        ```
+            ```css
+            .foo {
+                color: var(--bar);
+            }
+            ```
 
-        ```js
-        export const foo = 'bar'
-        ```
-        EOD;
+            ```js
+            export const foo = 'bar'
+            ```
+            EOD;
 
         $expectedHtml = <<<'EOD'
-        <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
-            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
-        }</code></pre>
-        <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
-        EOD;
+            <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
+                <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
+            }</code></pre>
+            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            EOD;
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
     }
@@ -73,22 +73,23 @@ class HighlightAdapterTest extends TestCase
     public function testKirbytextSkipHighlighting()
     {
         $text = <<<'EOD'
-        ```
-        .foo {
-            color: var(--bar);
-        }
-        ```
+            ```
+            .foo {
+                color: var(--bar);
+            }
+            ```
 
-        ```js
-        export const foo = 'bar'
-        ```
-        EOD;
+            ```js
+            export const foo = 'bar'
+            ```
+            EOD;
+
         $expectedHtml = <<<'EOD'
-        <pre><code>.foo {
-            color: var(--bar);
-        }</code></pre>
-        <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
-        EOD;
+            <pre><code>.foo {
+                color: var(--bar);
+            }</code></pre>
+            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            EOD;
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
     }
@@ -102,31 +103,43 @@ class HighlightAdapterTest extends TestCase
         ]);
 
         $text = <<<'EOD'
-        ```
-        .foo {
-            color: var(--bar);
-        }
-        ```
+            ```
+            .foo {
+                color: var(--bar);
+            }
+            ```
 
-        ```js
-        export const foo = 'bar'
-        ```
-        EOD;
+            ```js
+            export const foo = 'bar'
+            ```
+            EOD;
 
         $expectedHtml = <<<'EOD'
-        <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
-            <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
-        }</code></pre>
-        <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
-        EOD;
+            <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
+                <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
+            }</code></pre>
+            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            EOD;
 
         $this->assertEquals($expectedHtml, $app->kirbytext($text));
     }
 
-    public function testUmlauts()
+    public function testUmlautsInNormalKirbytext()
     {
-        $text = 'Äöü';
-        $expectedHtml = '<p>&Auml;&ouml;&uuml;</p>';
+        $text = 'Ä, ö, ü';
+        $expectedHtml = '<p>Ä, ö, ü</p>';
+
+        $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
+    }
+
+    public function testUmlautsInHighlightedKirbytext()
+    {
+        $text = <<<'EOD'
+            ```
+            Ä, ö, ü
+            ```
+            EOD;
+        $expectedHtml = '<pre><code>&Auml;, &ouml;, &uuml;</code></pre>';
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
     }

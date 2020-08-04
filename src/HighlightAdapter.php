@@ -24,6 +24,11 @@ class HighlightAdapter
         // Retrieve all `pre` elements inside newly created HTML document
         $preNodes = $dom->getElementsByTagName('pre');
 
+        // Bail if no `pre` elements have been found
+        if ($preNodes->length === 0) {
+            return $text;
+        }
+
         // Loop through all `pre` elements
         foreach ($preNodes as $preNode) {
             // Ensure nothing but the `code` element exists
