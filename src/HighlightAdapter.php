@@ -2,7 +2,6 @@
 
 namespace KirbyExtended;
 
-use DOMXPath;
 use Highlight\Highlighter;
 use Kirby\Toolkit\Str;
 
@@ -26,14 +25,14 @@ class HighlightAdapter
         $preNodes = $dom->getElementsByTagName('pre');
 
         // Loop through all `pre` elements
-        foreach ($preNodes as $node) {
-            // Ensure nothing nut the `code` element exists
-            if ($node->childNodes->length !== 1) {
+        foreach ($preNodes as $preNode) {
+            // Ensure nothing but the `code` element exists
+            if ($preNode->childNodes->length !== 1) {
                 continue;
             }
 
             // Select direct `code` child element of `pre` block
-            $codeNode = $node->firstChild;
+            $codeNode = $preNode->firstChild;
 
             // Get language code if present
             $language = $codeNode->getAttribute('class');
@@ -47,13 +46,13 @@ class HighlightAdapter
             }
 
             // Add `hljs` class to `pre` block
-            $node->setAttribute('class', option(static::$namespace . 'class', 'hljs'));
+            $preNode->setAttribute('class', option(static::$namespace . 'class', 'hljs'));
 
             // Get raw code data to highlight
             $code = $codeNode->nodeValue;
 
             // Remove code element afterwards
-            $node->removeChild($codeNode);
+            $preNode->removeChild($codeNode);
 
             // Initiate `Highlighter` and use pre-defined language code, fall
             // back to language auto detection if enabled
@@ -74,7 +73,7 @@ class HighlightAdapter
             // Append highlighted wrapped in `code` block to parent `pre`
             $codeNode = $dom->createDocumentFragment();
             $codeNode->appendXML('<code>' . $highlightedCode->value . '</code>');
-            $node->appendChild($codeNode);
+            $preNode->appendChild($codeNode);
         }
 
         // Save all changes
