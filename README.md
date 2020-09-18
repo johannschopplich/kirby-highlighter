@@ -1,4 +1,4 @@
-# Kirby Highlight
+# Kirby Highlighter
 
 > Server-side code highlighting for KirbyText.
 
@@ -62,16 +62,16 @@ In explicit mode, you have to define which language the code block is. Otherwise
 Alternatively you can use the automatic detection mode, which highlights your code with the language the library thinks is best. It is highly recommended you explicitly choose the language or limit the number of languages to automatically detect from. This reduces the number of inaccuracies and skips this extremely inefficient selection process.
 
 To enable automatic language detection, set:
-- `kirby-extended.highlight.autodetect` to `true`
-- `kirby-extended.highlight.languages` to an array of names from which languages should be chosen
+- `kirby-extended.highlighter.autodetect` to `true`
+- `kirby-extended.highlighter.languages` to an array of names from which languages should be chosen
 
 ## Options
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `kirby-extended.highlight.class` | `hljs` | Style class for Highlight to be added to the `pre` element.
-| `kirby-extended.highlight.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block.
-| `kirby-extended.highlight.languages` | `[]` | Array of language names to be auto detected. If empty, every language will be  
+| `kirby-extended.highlighter.class` | `hljs` | Style class for Highlight to be added to the `pre` element.
+| `kirby-extended.highlighter.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block.
+| `kirby-extended.highlighter.languages` | `[]` | Array of language names to be auto detected. If empty, every language will be  
 
 ## Credits
 

@@ -5,7 +5,7 @@
 use Kirby\Cms\App as Kirby;
 use KirbyExtended\HighlightAdapter;
 
-Kirby::plugin('johannschopplich/highlight', [
+Kirby::plugin('kirby-extended/highlighter', [
     'options' => [
         'class' => 'hljs',
         'autodetect' => false,

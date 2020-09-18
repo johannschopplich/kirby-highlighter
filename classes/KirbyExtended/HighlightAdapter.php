@@ -44,12 +44,12 @@ class HighlightAdapter
             }
 
             // Bail highlighting if language isn't set and auto detection is disabled
-            if (empty($language) && !option('kirby-extended.highlight.autodetect')) {
+            if (empty($language) && !option('kirby-extended.highlighter.autodetect')) {
                 continue;
             }
 
             // Add `hljs` class to `pre` block
-            $preNode->setAttribute('class', option('kirby-extended.highlight.class', 'hljs'));
+            $preNode->setAttribute('class', option('kirby-extended.highlighter.class', 'hljs'));
 
             // Get raw code data to highlight
             $code = $codeNode->nodeValue;
@@ -64,8 +64,8 @@ class HighlightAdapter
             // Highlight code
             if (!empty($language)) {
                 $highlightedCode = $highlighter->highlight($language, $code);
-            } elseif (option('kirby-extended.highlight.autodetect')) {
-                $languageSubset = option('kirby-extended.highlight.languages');
+            } elseif (option('kirby-extended.highlighter.autodetect')) {
+                $languageSubset = option('kirby-extended.highlighter.languages');
                 if (!empty($languageSubset)) {
                     $highlighter->setAutodetectLanguages($languageSubset);
                 }
