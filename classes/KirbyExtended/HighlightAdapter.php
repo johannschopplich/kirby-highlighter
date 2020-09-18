@@ -7,8 +7,6 @@ use Kirby\Toolkit\Str;
 
 class HighlightAdapter
 {
-    protected static string $namespace = 'kirby-extended.highlight.';
-
     /**
      * Highlight all code blocks inside a given HTML snippet
      *
@@ -46,12 +44,12 @@ class HighlightAdapter
             }
 
             // Bail highlighting if language isn't set and auto detection is disabled
-            if (empty($language) && !option(static::$namespace . 'autodetect', false)) {
+            if (empty($language) && !option('kirby-extended.highlight.autodetect')) {
                 continue;
             }
 
             // Add `hljs` class to `pre` block
-            $preNode->setAttribute('class', option(static::$namespace . 'class', 'hljs'));
+            $preNode->setAttribute('class', option('kirby-extended.highlight.class', 'hljs'));
 
             // Get raw code data to highlight
             $code = $codeNode->nodeValue;
@@ -66,8 +64,8 @@ class HighlightAdapter
             // Highlight code
             if (!empty($language)) {
                 $highlightedCode = $highlighter->highlight($language, $code);
-            } elseif (option(static::$namespace . 'autodetect', false)) {
-                $languageSubset = option(static::$namespace . 'languages', null);
+            } elseif (option('kirby-extended.highlight.autodetect')) {
+                $languageSubset = option('kirby-extended.highlight.languages');
                 if (!empty($languageSubset)) {
                     $highlighter->setAutodetectLanguages($languageSubset);
                 }

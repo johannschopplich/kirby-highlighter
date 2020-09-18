@@ -8,13 +8,10 @@ use KirbyExtended\HighlightAdapter;
 Kirby::plugin('johannschopplich/highlight', [
     'options' => [
         'class' => 'hljs',
-        'autolanguages' => [],
         'autodetect' => false,
-        'escape' => false
+        'languages' => []
     ],
     'hooks' => [
-        'kirbytext:after' => function (?string $text) {
-            return HighlightAdapter::highlight($text);
-        }
+        'kirbytext:after' => fn($text) => HighlightAdapter::highlight($text)
     ]
 ]);

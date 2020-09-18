@@ -12,7 +12,7 @@ class HTML5DOMDocument extends DOMDocument
      *
      * @var string
      */
-    protected string $fakeRoot = 'main';
+    protected string $tempRoot = 'main';
 
     /**
      * Create a new HTML5-compatible document parser
@@ -48,7 +48,7 @@ class HTML5DOMDocument extends DOMDocument
         // Add fake root element for XML parser because it assumes that the
         // first encountered tag is the root element
         // @see https://stackoverflow.com/questions/39479994/php-domdocument-savehtml-breaks-format
-        return parent::loadHTML("<{$this->fakeRoot}>" . $convertedSource . "</{$this->fakeRoot}>", $options);
+        return parent::loadHTML("<{$this->tempRoot}>" . $convertedSource . "</{$this->tempRoot}>", $options);
     }
 
     /**
@@ -57,10 +57,10 @@ class HTML5DOMDocument extends DOMDocument
      * @param string $output
      * @return string
      */
-    private function unwrapFakeRoot(string $output): string
+    private function unwrapTempRoot(string $output): string
     {
-        if ($this->firstChild->nodeName === $this->fakeRoot) {
-            return substr($output, strlen($this->fakeRoot) + 2, -strlen($this->fakeRoot) - 4);
+        if ($this->firstChild->nodeName === $this->tempRoot) {
+            return substr($output, strlen($this->tempRoot) + 2, -strlen($this->tempRoot) - 4);
         }
 
         return $output;
@@ -82,7 +82,7 @@ class HTML5DOMDocument extends DOMDocument
         }
 
         if ($node === null) {
-            $html = $this->unwrapFakeRoot($html);
+            $html = $this->unwrapTempRoot($html);
         }
 
         return $html;
