@@ -53,11 +53,11 @@ The syntax highlighting functionality can be changed. You can choose between two
 1. Explicit mode (default)
 2. Automatic language detection mode (opt-in)
 
-### Explicit Mode
+### Explicit mode
 
 In explicit mode, you have to define which language the code block is. Otherwise highlighting will be skipped.
 
-### Automatic Language Detection Mode
+### Automatic language detection mode
 
 Alternatively you can use the automatic detection mode, which highlights your code with the language the library thinks is best. It is highly recommended you explicitly choose the language or limit the number of languages to automatically detect from. This reduces the number of inaccuracies and skips this extremely inefficient selection process.
 
@@ -72,6 +72,14 @@ To enable automatic language detection, set:
 | `kirby-extended.highlighter.class` | `hljs` | Style class for Highlight to be added to the `pre` element.
 | `kirby-extended.highlighter.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block.
 | `kirby-extended.highlighter.languages` | `[]` | Array of language names to be auto detected. If empty, every language will be  
+
+## Styling
+
+Since this plugin handles highlighting code only and thus just adds classes to HTML elements, you have to include styles in your frontend yourself. I recommend choosing one of the available styles directly from the highlight.js project: [highlight.js/src/styles/](https://github.com/highlightjs/highlight.js/tree/master/src/styles)
+
+The CSS files over at the repository are maintained and new ones arrive from time to time, therefore it would be redundant to include a copy in this repository.
+
+One of my favorites is [Night Owl by Sarah Drasner](https://github.com/highlightjs/highlight.js/blob/master/src/styles/night-owl.css).
 
 ## Credits
 

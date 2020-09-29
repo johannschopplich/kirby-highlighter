@@ -2,14 +2,14 @@
 
 <phpunit bootstrap="vendor/autoload.php" colors="true" verbose="true">
     <testsuites>
-        <testsuite name="Kirby Highlight Test Suite">
+        <testsuite name="Kirby Highlighter Test Suite">
             <directory suffix="Test.php">./tests</directory>
         </testsuite>
     </testsuites>
 
     <filter>
         <whitelist>
-            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">./classes</directory>
         </whitelist>
     </filter>
 </phpunit>
