@@ -3,7 +3,6 @@
 namespace KirbyExtended;
 
 use Highlight\Highlighter;
-use Kirby\Toolkit\Str;
 
 class HighlightAdapter
 {
@@ -39,8 +38,8 @@ class HighlightAdapter
 
             // Get language code if present
             $language = $codeNode->getAttribute('class');
-            if (Str::contains($language, '-')) {
-                $language = Str::split($language, '-')[1];
+            if (str_starts_with($language, 'language-')) {
+                $language = preg_replace('/^language-/', '', $language);
             }
 
             // Bail highlighting if language isn't set and auto detection is disabled
