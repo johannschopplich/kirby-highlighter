@@ -69,9 +69,9 @@ To enable automatic language detection, set:
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `kirby-extended.highlighter.class` | `hljs` | Style class for Highlight to be added to the `pre` element.
-| `kirby-extended.highlighter.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block.
-| `kirby-extended.highlighter.languages` | `[]` | Array of language names to be auto detected. If empty, every language will be  
+| `kirby-extended.highlighter.class` | `hljs` | Style class for Highlight to be added to the `pre` element. |
+| `kirby-extended.highlighter.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block. |
+| `kirby-extended.highlighter.languages` | `[]` | Array of language names to be auto-detected. If empty, every language will be auto-detectable. |
 
 ## Styling in the frontend
 
