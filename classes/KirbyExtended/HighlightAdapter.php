@@ -81,7 +81,7 @@ class HighlightAdapter
 
             // Append highlighted wrapped in `code` block to parent `pre`
             $codeNode = $dom->createDocumentFragment();
-            $codeNode->appendXML('<code>' . $highlightedCode->value . '</code>');
+            $codeNode->appendXML('<code data-language="'. $language.'">' . $highlightedCode->value . '</code>');
             $preNode->appendChild($codeNode);
         }
 
