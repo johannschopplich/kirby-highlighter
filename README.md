@@ -72,8 +72,8 @@ To enable automatic language detection, set:
 | `kirby-extended.highlighter.class` | `hljs` | Style class for Highlight to be added to the `pre` element. |
 | `kirby-extended.highlighter.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block. |
 | `kirby-extended.highlighter.languages` | `[]` | Array of language names to be auto-detected. If empty, every language will be auto-detectable. |
-|`kirby-extended.highlighter.line-numbering` | `false` | Indicates if the library should split up the highlighted code on each new line and wrap each line with a `<span>` element. |
-|`kirby-extended.highlighter.line-numbering-class` | `code-line` | Style class applied to highlighted code line `<span>` elements.|
+| `kirby-extended.highlighter.line-numbering` | `false` | Indicates if the library should split up the highlighted code on each new line and wrap it in a `<span>` element. |
+| `kirby-extended.highlighter.line-numbering-class` | `hljs-code-line` | CSS class applied to highlighted code lines, respectively `<span>` elements. |
 
 ## Styling in the frontend
 
@@ -86,15 +86,15 @@ For example you could download the CSS file and save it in your Kirby project un
 
 ### Line Numbering
 
-If you choose to activate the line numbering option, you will need to include some css style that handle line numbering display.
+If you choose to activate the line numbering option, you will need to include additional CSS style to display line numbering.
 
 A basic example using [pseudo-elements](https://developer.mozilla.org/en-US/docs/Web/CSS/Pseudo-elements) :
 ```css
-pre.hljs .code-line {
+pre.hljs .hljs-code-line {
   counter-increment: line;
 }
 
-pre.hljs .code-line::before {
+pre.hljs .hljs-code-line::before {
   content: counter(line);
   display: inline-block;
   margin-right: 1em;
