@@ -1,12 +1,12 @@
 <?php return array (
   'root' => 
   array (
-    'pretty_version' => 'dev-master',
-    'version' => 'dev-master',
+    'pretty_version' => 'dev-main',
+    'version' => 'dev-main',
     'aliases' => 
     array (
     ),
-    'reference' => 'fb16a8c96e4b14bc2b71102d1a544a6bbdcc5355',
+    'reference' => 'b3fda24313dd3977252229ec4628025151f3f229',
     'name' => 'johannschopplich/kirby-highlighter',
   ),
   'versions' => 
@@ -22,12 +22,12 @@
     ),
     'johannschopplich/kirby-highlighter' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => 'dev-main',
+      'version' => 'dev-main',
       'aliases' => 
       array (
       ),
-      'reference' => 'fb16a8c96e4b14bc2b71102d1a544a6bbdcc5355',
+      'reference' => 'b3fda24313dd3977252229ec4628025151f3f229',
     ),
     'scrivo/highlight.php' => 
     array (
@@ -40,12 +40,12 @@
     ),
     'symfony/polyfill-php80' => 
     array (
-      'pretty_version' => 'v1.20.0',
-      'version' => '1.20.0.0',
+      'pretty_version' => 'v1.22.1',
+      'version' => '1.22.1.0',
       'aliases' => 
       array (
       ),
-      'reference' => 'e70aa8b064c5b72d3df2abd5ab1e90464ad009de',
+      'reference' => 'dc3063ba22c2a1fd2f45ed856374d79114998f91',
     ),
   ),
 );
