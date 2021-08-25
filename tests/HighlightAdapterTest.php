@@ -16,13 +16,6 @@ class HighlightAdapterTest extends TestCase
                 'index' => $this->fixtures = __DIR__ . '/fixtures'
             ]
         ]);
-
-        // Dir::make($this->fixtures . '/site');
-    }
-
-    public function tearDown(): void
-    {
-        // Dir::remove($this->fixtures . '/site');
     }
 
     public function testHighlightAdapter()

@@ -17,17 +17,16 @@
     }
   ],
   "require": {
-    "getkirby/composer-installer": "^1.1",
-    "scrivo/highlight.php": "^9.18",
-    "symfony/polyfill-php80": "^1.20"
+    "getkirby/composer-installer": "^1.2",
+    "symfony/polyfill-php80": "^1.20",
+    "scrivo/highlight.php": "^9.18"
   },
   "require-dev": {
     "getkirby/cms": "^3.0",
     "phpunit/phpunit": "^9.0"
   },
   "config": {
-    "optimize-autoloader": true,
-    "sort-packages": true
+    "optimize-autoloader": true
   },
   "autoload": {
     "psr-4": {
@@ -35,8 +34,8 @@
     }
   },
   "scripts": {
-    "test": "phpunit",
-    "dist": "composer install --no-dev --optimize-autoloader"
+    "dist": "composer install --no-dev --optimize-autoloader",
+    "test": "phpunit"
   },
   "extra": {
     "kirby-cms-path": false
