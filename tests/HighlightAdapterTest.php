@@ -29,11 +29,11 @@ class HighlightAdapterTest extends TestCase
             EOD;
 
         $expectedHtml = <<<'EOD'
-            <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
+            <pre class="hljs"><code data-language="css"><span class="hljs-selector-class">.foo</span> {
                 <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
             }</code></pre>
 
-            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            <pre class="hljs"><code data-language="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
             EOD;
 
         $this->assertEquals($expectedHtml, HighlightAdapter::highlight($html));
@@ -54,10 +54,10 @@ class HighlightAdapterTest extends TestCase
             EOD;
 
         $expectedHtml = <<<'EOD'
-            <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
+            <pre class="hljs"><code data-language="css"><span class="hljs-selector-class">.foo</span> {
                 <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
             }</code></pre>
-            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            <pre class="hljs"><code data-language="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
             EOD;
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
@@ -81,7 +81,7 @@ class HighlightAdapterTest extends TestCase
             <pre><code>.foo {
                 color: var(--bar);
             }</code></pre>
-            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            <pre class="hljs"><code data-language="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
             EOD;
 
         $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
@@ -108,10 +108,10 @@ class HighlightAdapterTest extends TestCase
             EOD;
 
         $expectedHtml = <<<'EOD'
-            <pre class="hljs"><code><span class="hljs-selector-class">.foo</span> {
+            <pre class="hljs"><code data-language=""><span class="hljs-selector-class">.foo</span> {
                 <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
             }</code></pre>
-            <pre class="hljs"><code><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
+            <pre class="hljs"><code data-language="js"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> foo = <span class="hljs-string">'bar'</span></code></pre>
             EOD;
 
         $this->assertEquals($expectedHtml, $app->kirbytext($text));
