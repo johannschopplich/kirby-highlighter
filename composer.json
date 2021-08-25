@@ -25,9 +25,6 @@
     "getkirby/cms": "^3.0",
     "phpunit/phpunit": "^9.0"
   },
-  "config": {
-    "optimize-autoloader": true
-  },
   "autoload": {
     "psr-4": {
       "KirbyExtended\\": "classes/KirbyExtended/"
@@ -36,6 +33,9 @@
   "scripts": {
     "dist": "composer install --no-dev --optimize-autoloader",
     "test": "phpunit"
+  },
+  "config": {
+    "optimize-autoloader": true
   },
   "extra": {
     "kirby-cms-path": false
