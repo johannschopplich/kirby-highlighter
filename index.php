@@ -12,6 +12,6 @@ Kirby::plugin('kirby-extended/highlighter', [
         'languages' => []
     ],
     'hooks' => [
-        'kirbytext:after' => fn($text) => HighlightAdapter::highlight($text)
+        'kirbytext:after' => fn ($text) => HighlightAdapter::highlight($text)
     ]
 ]);
