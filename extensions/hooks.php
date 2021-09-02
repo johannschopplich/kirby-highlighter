@@ -1,19 +1,10 @@
 <?php
 
-namespace KirbyExtended;
-
 use Highlight\Highlighter;
+use KirbyExtended\HTML5DOMDocument;
 
-class HighlightAdapter
-{
-    /**
-     * Highlight all code blocks inside a given HTML snippet
-     *
-     * @param string|null $text
-     * @return string
-     */
-    public static function highlight(?string $text)
-    {
+return [
+    'kirbytext:after' => function (?string $text) {
         // Parse KirbyText input as HTML document
         $dom = new HTML5DOMDocument();
         $dom->loadHTML($text);
@@ -89,4 +80,4 @@ class HighlightAdapter
         $text = $dom->saveHTML(null, true);
         return $text;
     }
-}
+];

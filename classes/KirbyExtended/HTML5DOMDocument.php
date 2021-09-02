@@ -2,10 +2,7 @@
 
 namespace KirbyExtended;
 
-use DOMDocument;
-use DOMNode;
-
-class HTML5DOMDocument extends DOMDocument
+class HTML5DOMDocument extends \DOMDocument
 {
     /**
      * Name of temporary root element for the XML parser
@@ -35,7 +32,7 @@ class HTML5DOMDocument extends DOMDocument
      *
      * @param string $source
      * @param string|int $options
-     * @return DOMDocument|bool
+     * @return \DOMDocument|bool
      */
     public function loadHTML($source, $options = LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD)
     {
@@ -69,11 +66,11 @@ class HTML5DOMDocument extends DOMDocument
     /**
      * Dump the internal document into a HTML string
      *
-     * @param DOMNode|null $node
+     * @param \DOMNode|null $node
      * @param bool $entities
      * @return string|false
      */
-    public function saveHTML(?DOMNode $node = null, bool $entities = false)
+    public function saveHTML(?\DOMNode $node = null, bool $entities = false)
     {
         $html = parent::saveHTML($node);
 
