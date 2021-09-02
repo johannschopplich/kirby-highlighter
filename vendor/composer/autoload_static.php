@@ -4,7 +4,7 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2
+class ComposerStaticInit7cf55cdc9b66480b507233b054eae43f
 {
     public static $files = array (
         'b6ec61354e97f32c0ae683041c78392a' => __DIR__ . '/..' . '/scrivo/highlight.php/HighlightUtilities/functions.php',
@@ -67,7 +67,6 @@ class ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2
         'Highlight\\RegExUtils' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExUtils.php',
         'Highlight\\Terminators' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Terminators.php',
         'KirbyExtended\\HTML5DOMDocument' => __DIR__ . '/../..' . '/classes/KirbyExtended/HTML5DOMDocument.php',
-        'KirbyExtended\\HighlightAdapter' => __DIR__ . '/../..' . '/classes/KirbyExtended/HighlightAdapter.php',
         'Kirby\\ComposerInstaller\\CmsInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/CmsInstaller.php',
         'Kirby\\ComposerInstaller\\Installer' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',
         'Kirby\\ComposerInstaller\\Plugin' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Plugin.php',
@@ -81,10 +80,10 @@ class ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2::$prefixDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitf8a026e2f5e1efc44fb3737106c5f9f2::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit7cf55cdc9b66480b507233b054eae43f::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit7cf55cdc9b66480b507233b054eae43f::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit7cf55cdc9b66480b507233b054eae43f::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit7cf55cdc9b66480b507233b054eae43f::$classMap;
 
         }, null, ClassLoader::class);
     }

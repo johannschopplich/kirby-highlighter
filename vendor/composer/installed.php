@@ -5,7 +5,7 @@
         'type' => 'kirby-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '12dd790852f68ecfc64d7270a0bd22b8e467b5ea',
+        'reference' => 'fa3554648c5304f1f37eda492f7c5820f87440e0',
         'name' => 'johannschopplich/kirby-highlighter',
         'dev' => false,
     ),
@@ -25,7 +25,7 @@
             'type' => 'kirby-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '12dd790852f68ecfc64d7270a0bd22b8e467b5ea',
+            'reference' => 'fa3554648c5304f1f37eda492f7c5820f87440e0',
             'dev_requirement' => false,
         ),
         'scrivo/highlight.php' => array(
