@@ -1,21 +1,15 @@
 <?php
 
-use Kirby\Cms\App as Kirby;
 use KirbyExtended\HighlightAdapter;
 use PHPUnit\Framework\TestCase;
 
 class HighlightAdapterTest extends TestCase
 {
-    protected $fixtures;
     protected $kirby;
 
     public function setUp(): void
     {
-        $this->kirby = new Kirby([
-            'roots' => [
-                'index' => $this->fixtures = __DIR__ . '/fixtures'
-            ]
-        ]);
+        $this->kirby = new \Kirby\Cms\App([]);
     }
 
     public function testHighlightAdapter()
