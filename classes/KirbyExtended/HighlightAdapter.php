@@ -43,7 +43,7 @@ class HighlightAdapter
             }
 
             // Bail highlighting if language isn't set and auto detection is disabled
-            if (empty($language) && !option('kirby-extended.highlighter.autodetect')) {
+            if (empty($language) && !option('kirby-extended.highlighter.autodetect', false)) {
                 continue;
             }
 
@@ -63,8 +63,8 @@ class HighlightAdapter
             // Highlight code
             if (!empty($language)) {
                 $highlightedCode = $highlighter->highlight($language, $code);
-            } elseif (option('kirby-extended.highlighter.autodetect')) {
-                $languageSubset = option('kirby-extended.highlighter.languages');
+            } elseif (option('kirby-extended.highlighter.autodetect', false)) {
+                $languageSubset = option('kirby-extended.highlighter.languages', []);
                 if (!empty($languageSubset)) {
                     $highlighter->setAutodetectLanguages($languageSubset);
                 }
