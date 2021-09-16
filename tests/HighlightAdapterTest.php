@@ -137,4 +137,33 @@ class HighlightAdapterTest extends TestCase
             $block->toHtml()
         );
     }
+
+    public function testCodeBlockHighlightingWithFallback()
+    {
+        $code = <<<'EOD'
+            .foo {
+                color: var(--bar);
+            }
+            EOD;
+
+        $expectedHtml = <<<'EOD'
+            <pre class="hljs"><code data-language="plaintext">.foo {
+                color: var(--bar);
+            }</code></pre>
+
+            EOD;
+
+        $block = new \Kirby\Cms\Block([
+            'type' => 'code',
+            'content' => [
+                'language' => 'not-a-language',
+                'code' => $code
+            ]
+        ]);
+
+        $this->assertEquals(
+            $expectedHtml,
+            $block->toHtml()
+        );
+    }
 }

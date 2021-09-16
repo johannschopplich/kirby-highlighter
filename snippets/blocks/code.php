@@ -1,10 +1,15 @@
 <?php
 
 /** @var \Kirby\Cms\Block $block */
-$language = $block->language()->or('text')->value();
+$highlighter = new \Highlight\Highlighter();
+$language = $block->language()->value();
 $code = $block->code()->value();
 
-$highlightedCode = (new \Highlight\Highlighter())->highlight($language, $code)->value;
+if (empty($language) || !in_array($language, $highlighter->listRegisteredLanguages())) {
+    $language = 'plaintext';
+}
+
+$highlightedCode = $highlighter->highlight($language, $code)->value;
 
 // Handle line numbering
 if (option('kirby-extended.highlighter.line-numbering', false)) {
