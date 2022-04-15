@@ -70,6 +70,7 @@ class HTML5DOMDocument extends \DOMDocument
      * @param bool $entities
      * @return string|false
      */
+    #[\ReturnTypeWillChange]
     public function saveHTML(?\DOMNode $node = null, bool $entities = false)
     {
         $html = parent::saveHTML($node);
