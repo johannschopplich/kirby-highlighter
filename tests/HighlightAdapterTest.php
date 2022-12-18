@@ -63,7 +63,7 @@ class HighlightAdapterTest extends TestCase
     {
         $app = $this->kirby->clone([
             'options' => [
-                'kirby-extended.highlighter.autodetect' => true
+                'johannschopplich.highlighter.autodetect' => true
             ]
         ]);
 

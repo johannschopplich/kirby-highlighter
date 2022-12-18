@@ -1,10 +1,10 @@
 <?php
 
 use Highlight\Highlighter;
-use KirbyExtended\HTML5DOMDocument;
+use JohannSchopplich\HTML5DOMDocument;
 
 return [
-    'kirbytext:after' => function (?string $text) {
+    'kirbytext:after' => function (string|null $text) {
         // Parse KirbyText input as HTML document
         $dom = new HTML5DOMDocument();
         $dom->loadHTML($text);
@@ -34,12 +34,12 @@ return [
             }
 
             // Bail highlighting if language isn't set and auto detection is disabled
-            if (empty($language) && !option('kirby-extended.highlighter.autodetect', false)) {
+            if (empty($language) && !option('johannschopplich.highlighter.autodetect', false)) {
                 continue;
             }
 
             // Add `hljs` class to `pre` block
-            $preNode->setAttribute('class', option('kirby-extended.highlighter.class', 'hljs'));
+            $preNode->setAttribute('class', option('johannschopplich.highlighter.class', 'hljs'));
 
             // Get raw code data to highlight
             $code = $codeNode->nodeValue;
@@ -54,8 +54,8 @@ return [
             // Highlight code
             if (!empty($language)) {
                 $highlightedCode = $highlighter->highlight($language, $code);
-            } elseif (option('kirby-extended.highlighter.autodetect', false)) {
-                $languageSubset = option('kirby-extended.highlighter.languages', []);
+            } elseif (option('johannschopplich.highlighter.autodetect', false)) {
+                $languageSubset = option('johannschopplich.highlighter.languages', []);
                 if (!empty($languageSubset)) {
                     $highlighter->setAutodetectLanguages($languageSubset);
                 }
@@ -64,9 +64,9 @@ return [
             }
 
             // Line numbering
-            if (option('kirby-extended.highlighter.line-numbering', false)) {
+            if (option('johannschopplich.highlighter.line-numbering', false)) {
                 $lines = preg_split('/\R/', $highlightedCode->value);
-                $lineClass = option('kirby-extended.highlighter.line-numbering-class', 'hljs-code-line');
+                $lineClass = option('johannschopplich.highlighter.line-numbering-class', 'hljs-code-line');
                 $highlightedCode->value = '<span class="' . $lineClass . '">' . implode("</span>\n<span class=\"$lineClass\">", $lines) . '</span>';
             }
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace KirbyExtended;
+namespace JohannSchopplich;
 
 class HTML5DOMDocument extends \DOMDocument
 {
@@ -71,7 +71,7 @@ class HTML5DOMDocument extends \DOMDocument
      * @return string|false
      */
     #[\ReturnTypeWillChange]
-    public function saveHTML(?\DOMNode $node = null, bool $entities = false)
+    public function saveHTML(\DOMNode|null $node = null, bool $entities = false)
     {
         $html = parent::saveHTML($node);
 

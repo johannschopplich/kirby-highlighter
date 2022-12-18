@@ -13,8 +13,8 @@ Built upon [highlight.php](http://www.highlightjs.org) which itself is a port of
 
 ## Requirements
 
-- Kirby 3
-- PHP 7.4+
+- Kirby 3.8+
+- PHP 8.0+
 
 ## Installation
 
@@ -44,11 +44,11 @@ Use the `code` block just like before, the output will be highlighted automatica
 
 ```yaml
 fields:
-  example:
-    label: Paste code here
-    type: blocks
-    fieldsets:
-      - code
+    example:
+        label: Paste code here
+        type: blocks
+        fieldsets:
+            - code
 ```
 
 ### Within KirbyText
@@ -85,18 +85,18 @@ Alternatively you can use the automatic detection mode, which highlights your co
 
 To enable automatic language detection, set:
 
-- `kirby-extended.highlighter.autodetect` to `true`
-- `kirby-extended.highlighter.languages` to an array of names from which languages should be chosen
+-   `johannschopplich.highlighter.autodetect` to `true`
+-   `johannschopplich.highlighter.languages` to an array of names from which languages should be chosen
 
 ## Options
 
-| Option | Default | Description |
-| --- | --- | --- |
-| `kirby-extended.highlighter.class` | `hljs` | Style class for Highlight to be added to the `pre` element. |
-| `kirby-extended.highlighter.autodetect` | `false` | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block. |
-| `kirby-extended.highlighter.languages` | `[]` | Array of language names to be auto-detected. If empty, every language will be auto-detectable. |
-| `kirby-extended.highlighter.line-numbering` | `false` | Indicates if the library should split up the highlighted code on each new line and wrap it in a `<span>` element. |
-| `kirby-extended.highlighter.line-numbering-class` | `hljs-code-line` | CSS class applied to highlighted code lines, respectively `<span>` elements. |
+| Option                                              |  Default         | Description                                                                                                                              |
+| --------------------------------------------------- | ---------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| `johannschopplich.highlighter.class`                | `hljs`           | Style class for Highlight to be added to the `pre` element.                                                                              |
+| `johannschopplich.highlighter.autodetect`           | `false`          | Indicates if the library should define which language thinks is best. Only applies when no language was set on the KirbyText code block. |
+| `johannschopplich.highlighter.languages`            | `[]`             | Array of language names to be auto-detected. If empty, every language will be auto-detectable.                                           |
+| `johannschopplich.highlighter.line-numbering`       | `false`          | Indicates if the library should split up the highlighted code on each new line and wrap it in a `<span>` element.                        |
+| `johannschopplich.highlighter.line-numbering-class` | `hljs-code-line` | CSS class applied to highlighted code lines, respectively `<span>` elements.                                                             |
 
 ## Styling in the Frontend
 
@@ -115,14 +115,14 @@ A basic example using [pseudo-elements](https://developer.mozilla.org/en-US/docs
 
 ```css
 pre.hljs .hljs-code-line {
-  counter-increment: line;
+    counter-increment: line;
 }
 
 pre.hljs .hljs-code-line::before {
-  content: counter(line);
-  display: inline-block;
-  margin-right: 1em;
-  opacity: 0.5;
+    content: counter(line);
+    display: inline-block;
+    margin-right: 1em;
+    opacity: 0.5;
 }
 ```
 

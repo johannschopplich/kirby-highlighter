@@ -6,7 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'Symfony\\Polyfill\\Php80\\' => array($vendorDir . '/symfony/polyfill-php80'),
     'Kirby\\' => array($vendorDir . '/getkirby/composer-installer/src'),
-    'KirbyExtended\\' => array($baseDir . '/classes/KirbyExtended'),
+    'JohannSchopplich\\' => array($baseDir . '/classes/JohannSchopplich'),
 );
