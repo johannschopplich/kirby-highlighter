@@ -2,7 +2,7 @@
   "name": "johannschopplich/kirby-highlighter",
   "description": "Server-side syntax highlighting for the Kirby CMS",
   "type": "kirby-plugin",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "keywords": [
     "kirby",
     "highlight",
