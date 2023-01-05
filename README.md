@@ -14,7 +14,6 @@ Built upon [highlight.php](http://www.highlightjs.org) which itself is a port of
 ## Requirements
 
 - Kirby 3.8+
-- PHP 8.0+
 
 ## Installation
 
