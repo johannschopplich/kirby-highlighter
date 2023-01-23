@@ -40,7 +40,7 @@ class HTML5DOMDocument extends \DOMDocument
         // told otherwise, so translate anything above the ASCII range into
         // its html entity equivalent
         // @see https://stackoverflow.com/questions/39148170/utf-8-with-php-domdocument-loadhtml
-        $convertedSource = htmlentities($source, ENT_COMPAT | ENT_HTML401, 'UTF-8');
+        $convertedSource = htmlspecialchars_decode(htmlentities($source, ENT_COMPAT, 'UTF-8'), ENT_QUOTES);
 
         // Add fake root element for XML parser because it assumes that the
         // first encountered tag is the root element
