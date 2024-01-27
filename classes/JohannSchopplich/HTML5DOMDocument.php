@@ -34,7 +34,7 @@ class HTML5DOMDocument extends \DOMDocument
      * @param string|int $options
      * @return \DOMDocument|bool
      */
-    public function loadHTML($source, $options = LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD)
+    public function loadHTML($source, $options = LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD): bool
     {
         // `loadHTML` will treat the string as being in ISO-8859-1 unless
         // told otherwise, so translate anything above the ASCII range into
