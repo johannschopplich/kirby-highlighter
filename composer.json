@@ -1,8 +1,8 @@
 {
   "name": "johannschopplich/kirby-highlighter",
-  "description": "Server-side syntax highlighting for the Kirby CMS",
+  "description": "Server-side syntax highlighting for Kirby CMS",
   "type": "kirby-plugin",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "keywords": [
     "kirby",
     "highlight",
@@ -24,7 +24,7 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "@stable",
-    "getkirby/cms": "^3.9",
+    "getkirby/cms": "^4",
     "phpunit/phpunit": "^9.0"
   },
   "autoload": {

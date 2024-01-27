@@ -132,4 +132,4 @@ pre.hljs .hljs-code-line::before {
 
 ## License
 
-[MIT](./LICENSE) License © 2020-2023 [Johann Schopplich](https://github.com/johannschopplich)
+[MIT](./LICENSE) License © 2020-PRESENT [Johann Schopplich](https://github.com/johannschopplich)
