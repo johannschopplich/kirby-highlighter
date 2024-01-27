@@ -2,21 +2,18 @@
 
 namespace JohannSchopplich;
 
-class HTML5DOMDocument extends \DOMDocument
+use DOMDocument;
+use DOMNode;
+
+class HTML5DOMDocument extends DOMDocument
 {
     /**
      * Name of temporary root element for the XML parser
-     *
-     * @var string
      */
     protected string $tempRoot = 'main';
 
     /**
      * Create a new HTML5-compatible document parser
-     *
-     * @param string $version
-     * @param string $encoding
-     * @return void
      */
     public function __construct(string $version = '1.0', string $encoding = 'UTF-8')
     {
@@ -29,12 +26,8 @@ class HTML5DOMDocument extends \DOMDocument
 
     /**
      * Load HTML from string, make UTF-8 compatible and add temporary root element
-     *
-     * @param string $source
-     * @param string|int $options
-     * @return \DOMDocument|bool
      */
-    public function loadHTML($source, $options = LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD): bool
+    public function loadHTML(string $source, int $options = LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD): bool
     {
         // `loadHTML` will treat the string as being in ISO-8859-1 unless
         // told otherwise, so translate anything above the ASCII range into
@@ -50,9 +43,6 @@ class HTML5DOMDocument extends \DOMDocument
 
     /**
      * Strip the temporarily added root element
-     *
-     * @param string $output
-     * @return string
      */
     private function unwrapTempRoot(string $output): string
     {
@@ -65,13 +55,9 @@ class HTML5DOMDocument extends \DOMDocument
 
     /**
      * Dump the internal document into a HTML string
-     *
-     * @param \DOMNode|null $node
-     * @param bool $entities
-     * @return string|false
      */
     #[\ReturnTypeWillChange]
-    public function saveHTML(\DOMNode|null $node = null, bool $entities = false)
+    public function saveHTML(DOMNode|null $node = null, bool $entities = false): string|false
     {
         $html = parent::saveHTML($node);
 
