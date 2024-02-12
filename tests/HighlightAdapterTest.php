@@ -166,4 +166,65 @@ class HighlightAdapterTest extends TestCase
             $block->toHtml()
         );
     }
+
+    public function testCodeBlockWithBase64EncodedString()
+    {
+        $code = <<<'EOD'
+            LmZvbyB7CiAgICBjb2xvcjogdmFyKC0tYmFyKTsKfQ==
+            EOD;
+
+        $expectedHtml = <<<'EOD'
+            <pre class="hljs"><code data-language="css"><span class="hljs-selector-class">.foo</span> {
+                <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
+            }</code></pre>
+
+            EOD;
+
+        $block = new \Kirby\Cms\Block([
+            'type' => 'code',
+            'content' => [
+                'language' => 'css',
+                'code' => $code
+            ]
+        ]);
+
+        $this->assertEquals(
+            $expectedHtml,
+            $block->toHtml()
+        );
+    }
+
+    public function testCodeKirbyTag()
+    {
+        $code = <<<'EOD'
+            (code: LmZvbyB7CiAgICBjb2xvcjogdmFyKC0tYmFyKTsKfQ== lang: css)
+            EOD;
+
+        $expectedHtml = <<<'EOD'
+            <pre class="hljs"><code data-language="css"><span class="hljs-selector-class">.foo</span> {
+                <span class="hljs-attribute">color</span>: <span class="hljs-built_in">var</span>(--bar);
+            }</code></pre>
+            EOD;
+
+        $this->assertEquals(
+            $expectedHtml,
+            kirbytext($code)
+        );
+    }
+
+    public function testCodeKirbyTagWithoutProperBase64EncodedString()
+    {
+        $code = <<<'EOD'
+            (code: LmZvbyB7CiAgICBjb2___BROKEN___xvcjogdmFyKC0tYmFyKTsKfQ== lang: css)
+            EOD;
+
+        $expectedHtml = <<<'EOD'
+            <pre class="hljs"><code data-language="css"><span class="hljs-selector-tag">LmZvbyB7CiAgICBjb2___BROKEN___xvcjogdmFyKC0tYmFyKTsKfQ</span>==</code></pre>
+            EOD;
+
+        $this->assertEquals(
+            $expectedHtml,
+            kirbytext($code)
+        );
+    }
 }

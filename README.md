@@ -61,6 +61,12 @@ Create a code block in your KirbyText field and optionally set the code language
 ```
 </code></pre>
 
+Or use the new `code`-KirbyTag from this plugin with a base64 encoded code string:
+
+```
+(code: LmN1cnJlbnRDb2xvciB7CiAgY29sb3I6IGN1cnJlbnRDb2xvcjsKfQ== lang: css)
+```
+
 Which outputs:
 
 ```html
