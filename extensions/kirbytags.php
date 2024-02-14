@@ -1,5 +1,7 @@
 <?php
 
+use Kirby\Cms\App;
+
 return [
     'code' => [
         'attr' => [
@@ -8,6 +10,7 @@ return [
         ],
         // TODO: Type as `\Kirby\Text\KirbyTag` for Kirby 4
         'html' => function ($tag) {
+            $kirby = App::instance();
             $code = $tag->value;
             $language = $tag->lang ?? $tag->language;
             $block = new \Kirby\Cms\Block([
@@ -18,7 +21,7 @@ return [
                 ]
             ]);
 
-            return snippet('blocks/code', ['block' => $block], true);
+            return $kirby->snippet('blocks/code', ['block' => $block], true);
         }
     ]
 ];
