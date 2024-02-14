@@ -6,7 +6,8 @@ return [
             'lang',
             'language',
         ],
-        'html' => function($tag) {
+        // TODO: Type as `\Kirby\Text\KirbyTag` for Kirby 4
+        'html' => function ($tag) {
             $code = $tag->value;
             $language = $tag->lang ?? $tag->language;
             $block = new \Kirby\Cms\Block([
