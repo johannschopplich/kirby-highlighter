@@ -1,6 +1,6 @@
 # Kirby Highlighter
 
-> Server-side code highlighting available as [custom block](https://getkirby.com/docs/reference/panel/fields/blocks) and for [KirbyText](https://getkirby.com/docs/guide/content/text-formatting#kirbytext).
+Server-side code highlighting available as [custom block](https://getkirby.com/docs/reference/panel/fields/blocks) and for [KirbyText](https://getkirby.com/docs/guide/content/text-formatting#kirbytext).
 
 Built upon [highlight.php](http://www.highlightjs.org) which itself is a port of [highlight.js](http://www.highlightjs.org).
 
@@ -17,21 +17,15 @@ Built upon [highlight.php](http://www.highlightjs.org) which itself is a port of
 
 ## Installation
 
-### Download
-
-Download and copy this repository to `/site/plugins/kirby-highlighter`.
-
-### Git Submodule
-
-```
-git submodule add https://github.com/johannschopplich/kirby-highlighter.git site/plugins/kirby-highlighter
-```
-
 ### Composer
 
 ```
 composer require johannschopplich/kirby-highlighter
 ```
+
+### Download
+
+Download and copy this repository to `/site/plugins/kirby-highlighter`.
 
 ## Usage
 
