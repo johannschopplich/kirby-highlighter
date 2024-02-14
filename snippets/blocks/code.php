@@ -3,7 +3,7 @@
 /** @var \Kirby\Cms\Block $block */
 $highlighter = new \Highlight\Highlighter();
 $language = $block->language()->value();
-$code = $block->code()->value();
+$code = $block->code()->fromBase64()->value();
 
 if (empty($language) || !in_array($language, $highlighter->listRegisteredLanguages())) {
     $language = 'plaintext';
