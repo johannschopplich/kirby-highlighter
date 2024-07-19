@@ -14,7 +14,7 @@
   "authors": [
     {
       "name": "Johann Schopplich",
-      "email": "pkg@johannschopplich.com",
+      "email": "hello@johannschopplich.com",
       "homepage": "https://johannschopplich.com"
     }
   ],
@@ -25,12 +25,7 @@
   "require-dev": {
     "friendsofphp/php-cs-fixer": "@stable",
     "getkirby/cms": "^4",
-    "phpunit/phpunit": "^9.0"
-  },
-  "autoload": {
-    "psr-4": {
-      "JohannSchopplich\\": "classes/JohannSchopplich/"
-    }
+    "phpunit/phpunit": "^11.1"
   },
   "scripts": {
     "fix": "php-cs-fixer fix",

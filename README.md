@@ -19,7 +19,7 @@ Built upon [highlight.php](http://www.highlightjs.org) which itself is a port of
 
 ### Composer
 
-```
+```bash
 composer require johannschopplich/kirby-highlighter
 ```
 
