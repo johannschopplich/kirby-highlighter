@@ -3,7 +3,7 @@
         'name' => 'johannschopplich/kirby-highlighter',
         'pretty_version' => '3.1.0',
         'version' => '3.1.0.0',
-        'reference' => NULL,
+        'reference' => null,
         'type' => 'kirby-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -22,7 +22,7 @@
         'johannschopplich/kirby-highlighter' => array(
             'pretty_version' => '3.1.0',
             'version' => '3.1.0.0',
-            'reference' => NULL,
+            'reference' => null,
             'type' => 'kirby-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

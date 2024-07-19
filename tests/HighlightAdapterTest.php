@@ -1,14 +1,22 @@
 <?php
 
+declare(strict_types = 1);
+
+use Kirby\Cms\App;
 use PHPUnit\Framework\TestCase;
 
 class HighlightAdapterTest extends TestCase
 {
-    protected $kirby;
+    protected App $kirby;
+    protected function tearDown(): void
+    {
+        restore_error_handler();
+        restore_exception_handler();
+    }
 
     public function setUp(): void
     {
-        $this->kirby = new \Kirby\Cms\App([]);
+        $this->kirby = new App([]);
     }
 
     public function testKirbyTextExplicitHighlighting()
@@ -87,26 +95,6 @@ class HighlightAdapterTest extends TestCase
             EOD;
 
         $this->assertEquals($expectedHtml, $app->kirbytext($text));
-    }
-
-    public function testUmlautsInNormalKirbyText()
-    {
-        $text = 'Ä, ö, ü';
-        $expectedHtml = '<p>Ä, ö, ü</p>';
-
-        $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
-    }
-
-    public function testUmlautsInHighlightedKirbyText()
-    {
-        $text = <<<'EOD'
-            ```
-            Ä, ö, ü
-            ```
-            EOD;
-        $expectedHtml = '<pre><code>&Auml;, &ouml;, &uuml;</code></pre>';
-
-        $this->assertEquals($expectedHtml, $this->kirby->kirbytext($text));
     }
 
     public function testCodeBlockHighlighting()

@@ -1,19 +1,18 @@
 <?php
 
 use Highlight\Highlighter;
-use JohannSchopplich\HTML5DOMDocument;
 use Kirby\Cms\App;
+use Kirby\Toolkit\Dom;
 
 return [
     'kirbytext:after' => function (string|null $text) {
         $kirby = App::instance();
 
         // Parse KirbyText input as HTML document
-        $dom = new HTML5DOMDocument();
-        $dom->loadHTML($text);
+        $dom = new Dom(htmlspecialchars_decode(htmlentities($text, ENT_COMPAT, 'UTF-8'), ENT_QUOTES));
 
         // Retrieve all `pre` elements inside newly created HTML document
-        $preNodes = $dom->getElementsByTagName('pre');
+        $preNodes = $dom->document()->getElementsByTagName('pre');
 
         // Bail if no `pre` elements have been found
         if ($preNodes->length === 0) {
@@ -74,13 +73,13 @@ return [
             }
 
             // Append highlighted wrapped in `code` block to parent `pre`
-            $codeNode = $dom->createDocumentFragment();
-            $codeNode->appendXML('<code data-language="' . $language . '">' . $highlightedCode->value . '</code>');
+            $codeNode = $dom->document()->createElement('code', $highlightedCode->value);
+            $codeNode->setAttribute('data-language', $language);
             $preNode->appendChild($codeNode);
         }
 
         // Save all changes
-        $text = $dom->saveHTML(null, true);
+        $text = html_entity_decode($dom->toString());
         return $text;
     }
 ];

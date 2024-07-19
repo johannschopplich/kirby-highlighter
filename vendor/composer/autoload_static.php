@@ -15,20 +15,12 @@ class ComposerStaticInit7cf55cdc9b66480b507233b054eae43f
         array (
             'Kirby\\' => 6,
         ),
-        'J' => 
-        array (
-            'JohannSchopplich\\' => 17,
-        ),
     );
 
     public static $prefixDirsPsr4 = array (
         'Kirby\\' => 
         array (
             0 => __DIR__ . '/..' . '/getkirby/composer-installer/src',
-        ),
-        'JohannSchopplich\\' => 
-        array (
-            0 => __DIR__ . '/../..' . '/classes/JohannSchopplich',
         ),
     );
 
@@ -59,7 +51,6 @@ class ComposerStaticInit7cf55cdc9b66480b507233b054eae43f
         'Highlight\\RegExMatch' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExMatch.php',
         'Highlight\\RegExUtils' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/RegExUtils.php',
         'Highlight\\Terminators' => __DIR__ . '/..' . '/scrivo/highlight.php/Highlight/Terminators.php',
-        'JohannSchopplich\\HTML5DOMDocument' => __DIR__ . '/../..' . '/classes/JohannSchopplich/HTML5DOMDocument.php',
         'Kirby\\ComposerInstaller\\CmsInstaller' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/CmsInstaller.php',
         'Kirby\\ComposerInstaller\\Installer' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Installer.php',
         'Kirby\\ComposerInstaller\\Plugin' => __DIR__ . '/..' . '/getkirby/composer-installer/src/ComposerInstaller/Plugin.php',
