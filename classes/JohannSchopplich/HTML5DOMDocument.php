@@ -10,7 +10,7 @@ class HTML5DOMDocument extends DOMDocument
     /**
      * Name of temporary root element for the XML parser
      */
-    protected string $tempRoot = 'main';
+    protected string $tempRoot = 'body';
 
     /**
      * Create a new HTML5-compatible document parser
@@ -38,7 +38,7 @@ class HTML5DOMDocument extends DOMDocument
         // Add fake root element for XML parser because it assumes that the
         // first encountered tag is the root element
         // @see https://stackoverflow.com/questions/39479994/php-domdocument-savehtml-breaks-format
-        return parent::loadHTML("<{$this->tempRoot}>" . $convertedSource . "</{$this->tempRoot}>", $options);
+        return parent::loadHTML('<html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></head><' . $this->tempRoot . '>' . $convertedSource, $options);
     }
 
     /**
@@ -46,11 +46,7 @@ class HTML5DOMDocument extends DOMDocument
      */
     private function unwrapTempRoot(string $output): string
     {
-        if ($this->firstChild->nodeName === $this->tempRoot) {
-            return substr($output, strlen($this->tempRoot) + 2, -strlen($this->tempRoot) - 4);
-        }
-
-        return $output;
+        return substr($output, strlen($this->tempRoot) + 2, -strlen($this->tempRoot) - 3);
     }
 
     /**
@@ -59,7 +55,7 @@ class HTML5DOMDocument extends DOMDocument
     #[\ReturnTypeWillChange]
     public function saveHTML(DOMNode|null $node = null, bool $entities = false): string|false
     {
-        $html = parent::saveHTML($node);
+        $html = parent::saveHTML($node ?? $this->getElementsByTagName($this->tempRoot)->item(0));
 
         if ($entities === false) {
             $html = html_entity_decode($html);
