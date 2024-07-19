@@ -5,7 +5,7 @@ declare(strict_types = 1);
 use Kirby\Cms\App;
 use PHPUnit\Framework\TestCase;
 
-class HighlightAdapterTest extends TestCase
+class HighlighterTest extends TestCase
 {
     protected App $kirby;
     protected function tearDown(): void
