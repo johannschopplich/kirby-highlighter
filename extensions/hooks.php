@@ -36,7 +36,7 @@ return [
             }
 
             // Bail highlighting if language isn't set and auto detection is disabled
-            if (empty($language) && !$kirby->option('johannschopplich.highlighter.autodetect', false)) {
+            if (empty($language) && $kirby->option('johannschopplich.highlighter.autodetect') === false) {
                 continue;
             }
 

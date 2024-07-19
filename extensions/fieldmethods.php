@@ -2,7 +2,7 @@
 
 if (!function_exists('is_base64_string_s')) {
     // https://stackoverflow.com/a/51877882
-    function is_base64_string_s(string $str, $enc = ['UTF-8', 'ASCII'])
+    function is_base64_string_s(string $str, array $enc = ['UTF-8', 'ASCII'])
     {
         return !(($b = base64_decode($str, true)) === false) && in_array(mb_detect_encoding($b), $enc);
     }
@@ -19,5 +19,5 @@ return [
         }
 
         return $field;
-    },
+    }
 ];
