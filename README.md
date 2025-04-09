@@ -1,3 +1,6 @@
+> [!NOTE]
+> This package is deprecated in favor of [Kirby Code Highlighter](https://github.com/bogdancondorachi/kirby-code-highlighter) – powered by [Phiki](https://github.com/phikiphp/phiki), that uses TextMate grammars and VS Code themes to generate syntax-highlighted code within Kirby's code block and KirbyText.
+
 # Kirby Highlighter
 
 Server-side code highlighting available as [custom block](https://getkirby.com/docs/reference/panel/fields/blocks) and for [KirbyText](https://getkirby.com/docs/guide/content/text-formatting#kirbytext).
